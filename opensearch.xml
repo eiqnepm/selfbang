@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+<ShortName>Self!</ShortName>
+<Description>Search Self!</Description>
+<InputEncoding>UTF-8</InputEncoding>
+<LongName>Self! Search</LongName>
+<Image height="16" width="16">data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAKJQTFRFAAAA9EM29EM26T81zDMz9VdL8UI2zDMz9EM29U1B8EE2zDMz9EM29mJX70E2zDMz9EM27kE2zDMz9EM27UA1zDMz9EM29U5C7EA1zDMz9EM29EM26j81zDMz9EM26T81zDMz9EM26D41zDMz9EM25j41zDMz9EM29EM23zs0zDMz3Dk01DY04j439VJG70I4zjQz5T428UI29EM23To01jc00r6ryQAAADZ0Uk5TACiAciH/8Xd6/+xxdf/na2/iZWneX2T/2lle/9ZTWdNNU9BHTc1BD31rC4Z8h///V4//AYh6FEFCuAAAAHRJREFUeJxjZAADRiD4A2FBBJiYGRl/IgtwAFV8RRbgAQp8RBYQ+MvC+A5ZQPgXO+NrZAExoJbnyAJSQIHHyAJyQDMeIAsoAs24iyyg8p2L8RaygDrQjGvIAgzajFcYkAV0gSouIAsYvhL/hyJgzMh4GsICAGEMFxHjf8lpAAAAAElFTkSuQmCC</Image><Url type="text/html" method="get" template="{{.}}/?q={searchTerms}"/><Url type="application/x-suggestions+json" template="https://duckduckgo.com/ac/?q={searchTerms}&amp;type=list"/></OpenSearchDescription>

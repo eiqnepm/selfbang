@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Self!</title>
+
+    <link
+      title="Self!"
+      type="application/opensearchdescription+xml"
+      rel="search"
+      href="/opensearch.xml"
+    />
+
+    <link rel="stylesheet" href="/css/pico.min.css" />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+  </head>
+  <body style="height: 100%">
+    <main
+      class="container"
+      style="
+        align-content: center;
+        display: grid;
+        height: 100%;
+        justify-content: center;
+      "
+    >
+      <img
+        src="/favicon/android-chrome-192x192.png"
+        alt=""
+        style="
+          border-radius: var(--pico-border-radius);
+          margin-bottom: var(--pico-spacing);
+          place-self: center;
+        "
+      />
+      <div class="overflow-auto">
+        <input
+          type="text"
+          value="{{ . }}/?q=%s"
+          aria-label="Read-only input"
+          readonly
+          onclick="this.select()"
+        />
+      </div>
+      <div class="overflow-auto">
+        <input
+          type="text"
+          value="https://duckduckgo.com/ac/?q={searchTerms}&amp;type=list"
+          aria-label="Read-only input"
+          readonly
+          onclick="this.select()"
+        />
+      </div>
+    </main>
+
+    <script>
+      let max = 0;
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("input").forEach((input) => {
+          if (input.value.length > max) {
+            max = input.value.length;
+          }
+        });
+
+        document.querySelectorAll("input").forEach((input) => {
+          input.style.width = `${max + 1}ch`;
+        });
+      });
+    </script>
+  </body>
+</html>
