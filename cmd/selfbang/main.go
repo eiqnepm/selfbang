@@ -117,8 +117,14 @@ func main() {
 
 		var bang, search string
 		for _, part := range strings.Fields(query) {
-			if strings.HasPrefix(part, delimiter) || strings.HasSuffix(part, delimiter) {
-				bang = strings.ToLower(strings.Trim(part, delimiter))
+			if index := strings.Index(part, delimiter); index != -1 {
+				if index == 0 {
+					bang = part[1:]
+					continue
+				}
+
+				bang = part[:index]
+				search += part[index+1:]
 				continue
 			}
 
@@ -129,12 +135,14 @@ func main() {
 			search += part
 		}
 
+		log.Println(bang)
+
 		if bang == "" {
 			return c.Redirect("https://www.google.com/search?q=" + url.QueryEscape(query))
 		}
 
 		mu.RLock()
-		val, ok := bangs[bang]
+		val, ok := bangs[strings.ToLower(bang)]
 		mu.RUnlock()
 		if !ok {
 			return c.Redirect("https://www.google.com/search?q=" + url.QueryEscape(query))
