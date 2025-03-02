@@ -7,7 +7,6 @@ import (
 	"log"
 	"net/http"
 	"net/url"
-	"regexp"
 	"strings"
 	"sync"
 	text "text/template"
@@ -103,6 +102,7 @@ func main() {
 
 	app := fiber.New()
 
+	delimiter := "!"
 	h := html.Must(html.ParseFiles("./index.html"))
 	app.Get("/", func(c *fiber.Ctx) error {
 		if _, ok := c.Queries()["q"]; !ok {
@@ -115,25 +115,36 @@ func main() {
 			return c.Redirect("https://google.com")
 		}
 
-		re := regexp.MustCompile(`![^!\s]{1,}`)
-		match := re.FindString(query)
-		if match == "" {
+		var bang, search string
+		for _, part := range strings.Fields(query) {
+			if strings.HasPrefix(part, delimiter) || strings.HasSuffix(part, delimiter) {
+				bang = strings.Trim(part, delimiter)
+				continue
+			}
+
+			if len(search) > 0 {
+				search += " "
+			}
+
+			search += part
+		}
+
+		if bang == "" {
 			return c.Redirect("https://www.google.com/search?q=" + url.QueryEscape(query))
 		}
 
 		mu.RLock()
-		val, ok := bangs[strings.TrimPrefix(match, "!")]
+		val, ok := bangs[bang]
 		mu.RUnlock()
 		if !ok {
 			return c.Redirect("https://www.google.com/search?q=" + url.QueryEscape(query))
 		}
 
-		remaining := strings.TrimSpace(re.ReplaceAllString(query, ""))
-		if remaining == "" {
+		if search == "" {
 			return c.Redirect("https://" + val.D)
 		}
 
-		return c.Redirect(strings.Replace(val.U, "{{{s}}}", url.PathEscape(remaining), 1))
+		return c.Redirect(strings.Replace(val.U, "{{{s}}}", url.PathEscape(search), 1))
 	})
 
 	t := text.Must(text.ParseFiles("./opensearch.xml"))
