@@ -13,8 +13,6 @@ RUN go build -ldflags="-s -w" -o /usr/local/bin/selfbang cmd/selfbang/main.go
 
 FROM golang:1-alpine
 
-ARG APP_NAME
-
 COPY --from=build /usr/local/bin/selfbang /selfbang
 
 COPY public ./public
