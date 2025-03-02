@@ -118,7 +118,7 @@ func main() {
 		var bang, search string
 		for _, part := range strings.Fields(query) {
 			if strings.HasPrefix(part, delimiter) || strings.HasSuffix(part, delimiter) {
-				bang = strings.Trim(part, delimiter)
+				bang = strings.ToLower(strings.Trim(part, delimiter))
 				continue
 			}
 
