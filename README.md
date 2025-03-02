@@ -1,4 +1,4 @@
-# selfbang
+# Self!
 Self hosted server side bangs using DuckDuckGo bangs inspired by unduck.link
 
 ## Features
