@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+<ShortName>Self!</ShortName>
+<Description>Search Self!</Description>
+<InputEncoding>UTF-8</InputEncoding>
+<LongName>Self! Search</LongName>
+<Image height="16" width="16">data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACOUlEQVQ4T6WTT2jTYBjGny9pu6Zz7VZrjXS2g+LBi4riwYtsPUy3trRO2aC4mzfZQT2JggcHHrQWtol6ECtWBceYwsCDBw+KVRBhUzcYc274Z0XmarulaZsu8dunZGaVifjllDdPfnne531DRFHU8B+HGAGEov6NtwYA2AQ7CnKeeTITgmTbTphNPHqfjmMsK4PjeKjqsu65CrDNvwNdXZ0QBCtGHw3jxB438gtZRAfT4E02yMVFLKuVPwM2uRoxMjIMr6+RCb49HoI09hxKrRMz/v24HO/D69FnhsSYA4tZQFkp4khHDP1XLumCL7fiKH96j43BbtTt2oeJ8UmEQmEoSolplEoJDEAIh3q7Gwdag0j09eqADxd6oJVkNJ29Cs5khqZpiIa68XbiFc0px3R6BltEHx48HILX62EP1IqCzN1+1G7fDcfeZh06NTWDUHsYucV5I+Bo7Bguxs/rwszgddr/CzQEonC2RAx9d0RjSL98YgS0tR7GjZsDbAs4Dsjcp4A3aTS0HIIzEKGj+1mXC2WEg52Y/TgJqZAD8Xi2aoK1DjUWAWdOn0Mk2g6LlQfPq1AWvsLiEtnLS7kyikUZicQAbt+5xkbJEX41A7Y4phpsdnsRaD6Ik6eOw+lyoFxUkEzeQyqVgiR9x3z2Mw2TEn+dqkWyb3BBognX211o8vmRzy9hevYddVGhNRHZ3Fz1HqxWCAhd39+/YBMc+shWdBwdubqeAwN+Zc700tb5wapaWAv42/0P4sPWizBeHNYAAAAASUVORK5CYII=</Image><Url type="text/html" method="get" template="{{.}}/?q={searchTerms}"/><Url type="application/x-suggestions+json" template="https://duckduckgo.com/ac/?q={searchTerms}&amp;type=list"/></OpenSearchDescription>
